@@ -1,5 +1,5 @@
 {
-  "studentId": ["uid_student"],
+  "studentIds": ["uid_student"],
   "tutorId": "uid_tutor",
   "classId": "uid_class"
   "date": "timestamp",

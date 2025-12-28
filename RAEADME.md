@@ -243,7 +243,10 @@ Ensure Node.js and npm are installed, then run:
 npm install
 firebase init
 firebase emulators:start
-node seeders/subscription.seeder.js
+node functions/seeders/subscription.seeder.js
 
 ### 2. Testing
 http://127.0.0.1:5001/portofolio-9f886/us-central1/api/
+
+
+### 3. Import file tutoring-app.postman_collection.json to postman (noted)
