@@ -1,0 +1,8 @@
+{
+  "studentId": "uid_student",
+  "startDate": "timestamp",
+  "endDate": "timestamp",
+  "is_active": true,
+  "createdAt": "timestamp",
+  "updatedAt": "timestamp"
+}

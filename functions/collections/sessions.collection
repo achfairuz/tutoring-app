@@ -1,0 +1,11 @@
+{
+  "studentId": ["uid_student"],
+  "tutorId": "uid_tutor",
+  "classId": "uid_class"
+  "date": "timestamp",
+  "startTime": "timestamp",
+  "endTime": null,
+  "durationMinutes": 0,
+  "status":  ["started", "completed", "invalid", "not-started", ],
+  "createdAt": "timestamp"
+}

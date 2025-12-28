@@ -1,0 +1,6 @@
+{
+  "tutorId": "uid_tutor",
+  "sessionId": "sessionId",
+  "amount": 50000,
+  "createdAt": "timestamp"
+}
