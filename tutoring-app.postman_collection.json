@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "9c6460eb-26ec-473d-84ed-74a58103d378",
+		"name": "tutoring-app",
+		"description": "This backend API was developed to manage tutoring sessions between tutors and students, equipped with security, wallet, transaction, and unit testing features.\n\nThis system ensures that only authorized tutors can conduct sessions and receive payments according to the terms and conditions.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39168140"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"student2@mail.com\",\r\n  \"password\": \"student123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/subscriptions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "start session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"studentIds\": [ \"PC3ZG4Q3bXOMitgcqFEdhVaY4XG2\",\r\n\r\n    \"Fbh2gZ3dvsg50QDq0ukliVU45Vo2\",\r\n    \"E7LseKrrZ5X4wLSbzV7U9Fe7rL63\",\r\n    \"vlzGNkgjcFPecndCAVHzJ97gYzL2\",\r\n    \"2o8BGGWoFgVf0rjAJfnc2Z5vdNo2\"\r\n    ]\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/start/wNFMPvAFHoZVlQt6IwCX",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"start",
+								"wNFMPvAFHoZVlQt6IwCX"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "endsession",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/sessions/end/GYjMF7Yg97m6AOUsJE3m",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"end",
+								"GYjMF7Yg97m6AOUsJE3m"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-12-28\",\r\n  \"classId\": \"API\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

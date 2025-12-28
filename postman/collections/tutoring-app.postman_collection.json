@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "9c6460eb-26ec-473d-84ed-74a58103d378",
+    "name": "tutoring-app",
+    "description": "This backend API was developed to manage tutoring sessions between tutors and students, equipped with security, wallet, transaction, and unit testing features.\n\nThis system ensures that only authorized tutors can conduct sessions and receive payments according to the terms and conditions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "login",
+          "id": "6dca01df-b2c6-4326-b426-baf12fbfbccf",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"student2@mail.com\",\r\n  \"password\": \"student123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "79037748-b0c4-4028-9801-178014eaa01a"
+    },
+    {
+      "name": "Subscription",
+      "item": [
+        {
+          "name": "subscription",
+          "id": "e84a3d00-6910-49bc-acd8-4737fa2cc768",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/subscriptions",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "subscriptions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "3867128a-80fd-4cd7-807b-ae5e57461868"
+    },
+    {
+      "name": "Session",
+      "item": [
+        {
+          "name": "start session",
+          "id": "c5e9c6d5-e066-4a5b-8be5-ee08a3fdfedb",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"studentIds\": [ \"PC3ZG4Q3bXOMitgcqFEdhVaY4XG2\",\r\n\r\n    \"Fbh2gZ3dvsg50QDq0ukliVU45Vo2\",\r\n    \"E7LseKrrZ5X4wLSbzV7U9Fe7rL63\",\r\n    \"vlzGNkgjcFPecndCAVHzJ97gYzL2\",\r\n    \"2o8BGGWoFgVf0rjAJfnc2Z5vdNo2\"\r\n    ]\r\n \r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/sessions/start/wNFMPvAFHoZVlQt6IwCX",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "sessions",
+                "start",
+                "wNFMPvAFHoZVlQt6IwCX"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "endsession",
+          "id": "36cc8dce-9c4b-4256-baba-bae3214f20a0",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/sessions/end/GYjMF7Yg97m6AOUsJE3m",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "sessions",
+                "end",
+                "GYjMF7Yg97m6AOUsJE3m"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create session",
+          "id": "e21e48ec-5b29-4845-8ce3-138ed93a9c9b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"date\": \"2025-12-28\",\r\n  \"classId\": \"API\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/sessions/create",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "sessions",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "77004659-2f45-42d4-8f4e-3f47da97bf2a"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "b5309cf1-6500-48b4-a0c1-7a41bd0b33cb",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "0b338c83-2b6e-4ed8-a31a-a71d65346813",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "c056b05e-cf75-4371-9aa1-78117cc759ac",
+      "key": "baseURL",
+      "value": ""
+    },
+    {
+      "id": "94086eb6-cfd7-43af-ae70-b030ede25267",
+      "key": "token",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
